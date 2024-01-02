@@ -1,0 +1,21 @@
+<?xml version ="1.0" encoding ="utf-8" ?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted ="false" >
+        <trust-anchors>
+            <!-- Sử dụng chứng chỉ hệ thống -->
+            <certificates src ="system" />
+            <!-- Sử dụng chứng chỉ người dùng -->
+            <debuggable-override>
+                <certificates src ="user" />
+            </debuggable-override>
+            <!-- Sử dụng chứng chỉ tùy chỉnh từ tài nguyên ứng dụng -->
+<!--            <certificates src="@raw/my_custom_certificate" />-->
+        </trust-anchors>
+    </base-config>
+    <!-- Những domain có thể sử dụng domain...  -->
+    <domain-config cleartextTrafficPermitted ="true" >
+        <domain includeSubdomains ="true" >url1</domain>
+        <domain includeSubdomains ="true" >url2</domain>
+        <domain includeSubdomains ="true" >url3</domain>
+    </domain-config>
+</network-security-config>
